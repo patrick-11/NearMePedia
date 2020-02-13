@@ -41,7 +41,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
 	return (
 		<NavigationContainer>
-			<Tab.Navigator>
+			<Tab.Navigator initialRouteName = "Locations">
 				<Tab.Screen name = "Articles" component = {StackNavigatorScreenA}/>
 				<Tab.Screen name = "Locations" component = {StackNavigatorScreenB}/>
 				<Tab.Screen name = "Saved" component = {StackNavigatorScreenC}/>

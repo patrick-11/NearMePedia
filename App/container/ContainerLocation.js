@@ -22,4 +22,8 @@ export default class ContainerLocation extends PersistContainer {
     getLocations = () => {
         return this.state.location;
     }
+
+    addLocation = (location) => {
+        this.setState((curr) => ({location: [curr.location, ...location]}));
+    }
 }

@@ -1,19 +1,21 @@
 import React from "react";
-import {Text, View} from "react-native";
 import {Subscribe} from "unstated";
+
 
 import LocationList from "../components/LocationList";
 import ContainerLocation from "../container/ContainerLocation";
+import ContainerArticle from "../container/ContainerArticle";
 
 
 const ScreenB = (props) => {
     return (
-        <Subscribe to = {[ContainerLocation]}>
+        <Subscribe to = {[ContainerLocation, ContainerArticle]}>
             {
-                (containerLocation) => (
+                (containerLocation, containerArticle) => (
                     <LocationList
                         navigation = {props.navigation}
-                        container = {containerLocation}
+                        containerLocation = {containerLocation}
+                        containerArticle = {containerArticle}
                     />
                 )
             }
