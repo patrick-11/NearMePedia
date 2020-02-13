@@ -29,3 +29,5 @@ const ArticleFetch = (coord) => {
         }))
         .catch(error => console.log(error))
 }
+
+export default ArticleFetch;
