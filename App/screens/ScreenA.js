@@ -1,11 +1,19 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {Subscribe} from "unstated";
+
+import ArticleList from "../components/ArticleList";
+import ContainerArticle from "../container/ContainerArticle";
+
 
 const ScreenA = (props) => {
     return (
-        <View>
-            <Text>A</Text>
-        </View>
+        <Subscribe to = {[ContainerArticle]}>
+            {
+                (containerArticle) => (
+                    <ArticleList articles = {containerArticle.getArticles()}/>
+                )
+            }
+        </Subscribe>
     );
 }
 
