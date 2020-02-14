@@ -6,10 +6,10 @@ import {CoordFetch, ReverseCoordFetch} from "../data/CoordFetch";
 
 const LocationSearch = (props) => {
 
-    const [location, setLocation] = React.useState("");
+    const [address, setAddress] = React.useState("");
 
     const onPress = () => {
-        CoordFetch(location)
+        CoordFetch(address)
             .then(coord => ReverseCoordFetch(coord))
             .then(location => props.containerLocation.addLocation(location))
             .catch(error => console.log(error))
@@ -20,14 +20,14 @@ const LocationSearch = (props) => {
             <Body>
                 <Input
                     placeholder = "Location"
-                    value = {location}
-                    onChangeText = {(location) => setLocation(location)}
+                    value = {address}
+                    onChangeText = {(address) => setAddress(address)}
                 />
             </Body>
             <Right>
                 <Button
                     title = "Search"
-                    disabled = {!location}
+                    disabled = {!address}
                     onPress = {() => {onPress()}}
                 />
             </Right>

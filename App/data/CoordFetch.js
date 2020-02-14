@@ -2,10 +2,16 @@ import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 
 
-const coordFetch = async (location) => {
-    const {status} = await Permissions.askAsync(Permissions.LOCATION)
+const PermissionLocation = async () => {
+    const {status} = await Permissions.askAsync(Permissions.LOCATION);
+    if(status === "granted")
+        return true;
+    else
+        return false;
+}
 
-    if(status === "granted") {
+const CoordFetch = (location) => {
+    if(PermissionLocation) {
         return Location.geocodeAsync(location)
             .then(response => {
                 return {
@@ -13,17 +19,27 @@ const coordFetch = async (location) => {
                     longitude: response[0].longitude
                 }
             })
-            .catch(alert("Wrong Address!"));
+            .catch(() => alert("Wrong Address!"));
     }
-    alert("Access not granted!");
+    else {
+        alert("Location access not granted!");
+    }
 }
 
 const ReverseCoordFetch = (coord) => {
-    return Location.reverseGeocodeAsync(coord)
-        .then(response => {
-            return response[0].street + ", " + response[0] + ", " + response[0].country;
-        })
-        .catch(error => console.log(error))
+    if(PermissionLocation) {
+        return Location.reverseGeocodeAsync(coord)
+            .then(response => {
+                return {
+                    title: response[0].street + ", " + response[0].city + ", " + response[0].country,
+                    coord: coord
+                }
+            })
+            .catch(error => console.log(error))
+    }
+    else {
+        alert("Location access not granted!");
+    }
 }
 
-export {coordFetch, ReverseCoordFetch};
+export {CoordFetch, ReverseCoordFetch};

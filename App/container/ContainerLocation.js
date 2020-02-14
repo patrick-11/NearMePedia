@@ -9,7 +9,7 @@ export default class ContainerLocation extends PersistContainer {
         super(props);
 
         this.state = {
-            location: [{title: "Test", coord: {latitude: 46.49782636201107, longitude: 11.352520870004525}}]
+            location: [{title: "Piazza Domenicani, Bolzano, Italy", coord: {latitude: 46.49782, longitude: 11.35252}}]
         }
         //AsyncStorage.clear();
     }
@@ -24,6 +24,6 @@ export default class ContainerLocation extends PersistContainer {
     }
 
     addLocation = (location) => {
-        this.setState((curr) => ({location: [curr.location, ...location]}));
+        this.setState((curr) => ({location: [...curr.location, location]}));
     }
 }
