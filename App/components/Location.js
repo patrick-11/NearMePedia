@@ -19,7 +19,7 @@ const Location = (props) => {
     return (
         <ListItem onPress = {() => {onPress()}}>
             <Body>
-                <Text>{location.title}</Text>
+                <Text style = {{fontWeight: "bold"}}>{location.title}</Text>
                 <Text>{location.coord.latitude} | {location.coord.longitude}</Text>
             </Body>
             <Right>

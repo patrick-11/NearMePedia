@@ -1,5 +1,5 @@
 import React from "react";
-import {Text} from "react-native";
+import {Text, TouchableOpacity} from "react-native";
 import {ListItem, Right, Body, Icon} from "native-base";
 
 
@@ -16,7 +16,9 @@ const Article = (props) => {
                 <Text>Distance: {article.dist} m</Text>
             </Body>
             <Right>
-                <Icon name = "arrow-forward"/>
+                <TouchableOpacity onPress = {() => {props.containerSaved.addSaved(article)}}>
+                    <Icon name = "md-arrow-down" style = {{fontSize: 40}}/>
+                </TouchableOpacity>
             </Right>
         </ListItem>
     );

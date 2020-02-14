@@ -1,7 +1,6 @@
 import React from "react";
 import {Subscribe} from "unstated";
 
-
 import LocationList from "../components/LocationList";
 import ContainerLocation from "../container/ContainerLocation";
 import ContainerArticle from "../container/ContainerArticle";

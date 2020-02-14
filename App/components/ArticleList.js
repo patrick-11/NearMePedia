@@ -10,8 +10,13 @@ const ArticleList = (props) => {
             {props.articles ?
                 <FlatList
                     data = {props.articles}
-                    renderItem = {(article) => <Article article = {article}/>}
                     keyExtractor = {(_, index) => index.toString()}
+                    renderItem = {(article) => (
+                        <Article
+                            article = {article}
+                            containerSaved = {props.containerSaved}
+                        />
+                    )}
                 />
             :
                 <Text>Select a location!</Text>
