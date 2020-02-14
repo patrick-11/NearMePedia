@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "webpackServerPort": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 5350,
+  "expoServerNgrokUrl": "https://jg-ck8.aryados11.nearmepedia.exp.direct",
+  "packagerNgrokUrl": "https://packager.jg-ck8.aryados11.nearmepedia.exp.direct",
+  "ngrokPid": 5493,
+  "webpackServerPort": 19006
 }

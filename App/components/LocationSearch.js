@@ -1,6 +1,6 @@
 import React from "react";
 import {Button} from "react-native";
-import {ListItem, Input, Body, Right} from "native-base";
+import {ListItem, Input, Body, Icon} from "native-base";
 
 import {CoordFetch, ReverseCoordFetch} from "../data/CoordFetch";
 
@@ -19,6 +19,7 @@ const LocationSearch = (props) => {
 
     return (
         <ListItem>
+            <Icon name = "ios-search"/>
             <Body>
                 <Input
                     placeholder = "Location"
