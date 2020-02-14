@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, View, FlatList} from "react-native";
+import {View, FlatList} from "react-native";
 
 import LocationSearch from "../components/LocationSearch";
 import Location from "./Location";
@@ -7,11 +7,12 @@ import Location from "./Location";
 const LocationList = (props) => {
     return (
         <View style = {{flex: 1}}>
-            <LocationSearch
-                containerLocation = {props.containerLocation}
-            />
             <FlatList
                 data = {props.containerLocation.getLocations()}
+                keyExtractor = {(_, index) => index.toString()}
+                ListHeaderComponent = {
+                    <LocationSearch containerLocation = {props.containerLocation}/>
+                }
                 renderItem = {(location) => (
                     <Location
                         navigation = {props.navigation}
@@ -19,7 +20,6 @@ const LocationList = (props) => {
                         location = {location}
                     />
                 )}
-                keyExtractor = {(_, index) => index.toString()}
             />
         </View>
     );
