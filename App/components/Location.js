@@ -1,5 +1,5 @@
 import React from "react";
-import {Text} from "react-native";
+import {Text, TouchableOpacity} from "react-native";
 import {ListItem, Right, Body, Icon} from "native-base";
 
 import ArticleFetch from "../data/ArticleFetch";
@@ -23,7 +23,9 @@ const Location = (props) => {
                 <Text>{location.coord.latitude} | {location.coord.longitude}</Text>
             </Body>
             <Right>
-                <Icon name = "arrow-forward"/>
+                <TouchableOpacity onPress = {() => {props.containerLocation.removeLocation(location.title)}}>
+                    <Icon name = "ios-trash" style = {{fontSize: 40}}/>
+                </TouchableOpacity>
             </Right>
         </ListItem>
     );

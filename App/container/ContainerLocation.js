@@ -26,4 +26,9 @@ export default class ContainerLocation extends PersistContainer {
     addLocation = (location) => {
         this.setState((curr) => ({location: [...curr.location, location]}));
     }
+
+    removeLocation = (locationTitle) => {
+        const locations = this.state.location.filter(location => location.title !== locationTitle);
+        this.setState({location: locations});
+    }
 }
