@@ -9,7 +9,7 @@ const Location = (props) => {
 
     const location = props.location.item;
 
-    const onPress = () => {
+    const onPressLocation = () => {
         ArticleFetch(location.coord)
             .then(articles => props.containerArticle.setArticles(articles))
             .catch(error => console.log(error))
@@ -17,7 +17,7 @@ const Location = (props) => {
     }
 
     return (
-        <ListItem onPress = {() => {onPress()}}>
+        <ListItem onPress = {() => {onPressLocation()}}>
             <Body>
                 <Text style = {{fontWeight: "bold"}}>{location.title}</Text>
                 <Text>{location.coord.latitude} | {location.coord.longitude}</Text>
