@@ -13,13 +13,17 @@ const ArticleList = (props) => {
                     keyExtractor = {(_, index) => index.toString()}
                     renderItem = {(article) => (
                         <Article
+                            screen = {props.screen}
                             article = {article}
                             containerSaved = {props.containerSaved}
                         />
                     )}
                 />
             :
-                <Text>Select a location!</Text>
+                props.screen ?
+                    <Text>Select a Location!</Text>
+                :
+                    <Text>Save an Article!</Text>
             }
         </View>
     );
