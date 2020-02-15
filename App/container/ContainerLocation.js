@@ -9,7 +9,7 @@ export default class ContainerLocation extends PersistContainer {
         super(props);
 
         this.state = {
-            location: [{title: "Piazza Domenicani, Bolzano, Italy", coord: {latitude: 46.49782, longitude: 11.35252}}]
+            locations: [{title: "Piazza Domenicani, Bolzano, Italy", coord: {latitude: 46.49782, longitude: 11.35252}}]
         }
         //AsyncStorage.clear();
     }
@@ -20,15 +20,26 @@ export default class ContainerLocation extends PersistContainer {
     }
 
     getLocations = () => {
-        return this.state.location;
+        return this.state.locations;
     }
 
     addLocation = (location) => {
-        this.setState((curr) => ({location: [...curr.location, location]}));
+        if(this.findLocation(location.title))
+            alert("Address exists already!")
+        else
+            this.setState((curr) => ({locations: [...curr.locations, location]}));
     }
 
     removeLocation = (locationTitle) => {
-        const locations = this.state.location.filter(location => location.title !== locationTitle);
-        this.setState({location: locations});
+        const locations = this.state.locations.filter(location => location.title !== locationTitle);
+        this.setState({locations: locations});
+    }
+
+    findLocation = (locationTitle) => {
+        for(let i = 0; i < this.state.locations.length; i++) {
+            if(this.state.locations[i].title === locationTitle)
+                return true;
+        }
+        return false;
     }
 }

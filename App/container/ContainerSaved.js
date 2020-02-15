@@ -31,4 +31,12 @@ export default class ContainerSaved extends PersistContainer {
         const saved = this.state.saved.filter(saved => saved.title !== savedTitle);
         this.setState({saved: saved});
     }
+
+    findSaved = (savedTitle) => {
+        for(let i = 0; i < this.state.saved.length; i++) {
+            if(this.state.saved[i].title === savedTitle)
+                return true;
+        }
+        return false;
+    }
 }
