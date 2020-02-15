@@ -12,6 +12,7 @@ const ScreenA = () => {
             {
                 (containerArticle, containerSaved) => (
                     <ArticleList
+                        screen = {true}
                         articles = {containerArticle.getArticles()}
                         containerSaved = {containerSaved}
                     />
