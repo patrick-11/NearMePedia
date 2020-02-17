@@ -1,26 +1,25 @@
 import React from "react";
-import {AsyncStorage} from "react-native";
-import {PersistContainer} from "unstated-persist";
+import {Container} from "unstated";
 
 
-export default class ContainerArticle extends PersistContainer {
+export default class ContainerArticle extends Container {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            articles: []
-        }
-        //AsyncStorage.clear();
+    state = {
+        articles: [],
+        loading: false
     }
 
-    persist = {
-		key: "Article",
-		storage: AsyncStorage
+    setLoading = (state) => {
+        this.setState({loading: state});
+    }
+
+    getLoading = () => {
+        return this.state.loading;
     }
 
     setArticles = (articles) => {
         this.setState({articles: articles});
+        this.setLoading(false);
     }
 
     getArticles = () => {

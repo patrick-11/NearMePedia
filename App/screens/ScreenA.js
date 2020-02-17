@@ -14,6 +14,7 @@ const ScreenA = () => {
                     <ArticleList
                         screen = {true}
                         articles = {containerArticle.getArticles()}
+                        containerArticle = {containerArticle}
                         containerSaved = {containerSaved}
                     />
                 )

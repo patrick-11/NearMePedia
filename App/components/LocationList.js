@@ -3,7 +3,9 @@ import {View, FlatList, Button} from "react-native";
 
 import LocationSearch from "../components/LocationSearch";
 import Location from "./Location";
+import ArticleFetch from "../data/ArticleFetch";
 import {MyLocation} from "../data/CoordFetch";
+
 
 const LocationList = (props) => {
 
@@ -18,7 +20,8 @@ const LocationList = (props) => {
                 .catch(error => console.log(error))
             )
             .catch(error => console.log(error))
-        props.navigation.navigate("Articles")
+        props.containerArticle.setLoading(true);
+        props.navigation.navigate("Articles");
     }
 
     return (

@@ -4,6 +4,7 @@ import {ListItem, Input, Body, Icon} from "native-base";
 
 import {CoordFetch, ReverseCoordFetch} from "../data/CoordFetch";
 
+
 const LocationSearch = (props) => {
 
     const [address, setAddress] = React.useState("");

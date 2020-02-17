@@ -4,7 +4,7 @@ import * as Permissions from "expo-permissions";
 
 const PermissionLocation = async () => {
     const {status} = await Permissions.askAsync(Permissions.LOCATION);
-    if(status === "granted")
+    if(status !== "granted")
         return true;
     else
         return false;
@@ -50,4 +50,24 @@ const ReverseCoordFetch = (coord) => {
     }
 }
 
-export {CoordFetch, ReverseCoordFetch};
+const MyLocation = () => {
+    if(PermissionLocation) {
+        return Location.getCurrentPositionAsync()
+            .then(response => {
+                if(response !== "undefined") {
+                    return {
+                        latitude: response.coords.latitude,
+                        longitude: response.coords.longitude
+                    }
+                }
+                else {
+                    throw new Error(response);
+                }
+            })
+    }
+    else {
+        alert("Location access not granted!");
+    }
+}
+
+export {CoordFetch, ReverseCoordFetch, MyLocation};
